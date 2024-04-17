@@ -1,0 +1,16 @@
+tensorboardX
+tensorboard==2.12.0
+soundfile
+pillow
+pytorch_model_summary
+timm
+matplotlib
+torchvision
+torchaudio
+scipy
+pandas
+lightning
+pyyaml
+transformers
+einops
+mamba_ssm

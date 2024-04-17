@@ -1,0 +1,6 @@
+a_train_log/*
+b_gpu_log/*
+__pycache__
+*/__pycache__
+*/*/__pycache__
+*/*/*/__pycache__

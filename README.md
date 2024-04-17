@@ -13,6 +13,10 @@ pip install -r requirement.txt
 
 # run sample
 
+first thing first, change the dir in the "utils/loadData/asvspoof_data_DA.py"
+
+the run this line
+
 ```
 bash run.sh a_train_log/aasist 0.01 6
 ```

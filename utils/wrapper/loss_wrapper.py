@@ -43,6 +43,8 @@ class loss_wrap():
             final_Loss = FocalLoss(gamma=2 , alpha=2580/22800)
         elif self.cfg.loss == "WCE":
             final_Loss = nn.CrossEntropyLoss(weight=torch.FloatTensor([0.1, 0.9]), reduction=self.reduce)
+        elif self.cfg.loss == "WCEsf":
+            final_Loss = nn.CrossEntropyLoss(weight=torch.FloatTensor([0.15, 0.85]), reduction=self.reduce)
         elif self.cfg.loss == "AM":
             final_Loss=AMSoftmax()
             loss_optim = torch.optim.SGD(final_Loss.parameters(), lr=self.cfg.loss_lr) # 0.01

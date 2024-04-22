@@ -2,6 +2,84 @@ import numpy as np
 import argparse
 import sys
 
+
+
+def eer19only(score_file, label_file,pos=1):
+    target=[]
+    nontarget=[]
+    target_score=[]
+    nontarget_score=[]
+    wav_lists=[]
+    score={}
+    lable_list={}
+    with open(label_file, 'r', encoding="utf-8") as f:
+        lines = f.readlines()
+        for line in lines:
+            line = line.strip().split()
+            if len(line) > 1:
+                wav_id = line[1]
+                label=line[4]
+                if label=="spoof":
+                    nontarget.append(wav_id)
+                else:
+                    target.append(wav_id)
+
+    with open(score_file, 'r', encoding="utf-8") as f:
+        lines = f.readlines()
+        for line in lines:
+            line = line.strip().split()
+            if len(line) > 1:
+                wav_id = line[0]
+                score[wav_id]=(line[pos]).replace("[","").replace("]","")
+    for wav_id in target:
+        target_score.append(float(score[wav_id]))
+    for wav_id in nontarget:
+        nontarget_score.append(float(score[wav_id]))
+    target_score=np.array(target_score)
+    nontarget_score=np.array(nontarget_score)
+    eer_cm, _=compute_eer(target_score, nontarget_score)
+    return eer_cm * 100
+
+
+
+def eeronly(score_file, label_file,pos=1):
+    target=[]
+    nontarget=[]
+    target_score=[]
+    nontarget_score=[]
+    wav_lists=[]
+    score={}
+    lable_list={}
+    with open(label_file, 'r', encoding="utf-8") as f:
+        lines = f.readlines()
+        for line in lines:
+            line = line.strip().split()
+            if len(line) > 1:
+                wav_id = line[2]
+                label=line[5]
+                if label=="deepfake":
+                    nontarget.append(wav_id)
+                else:
+                    target.append(wav_id)
+
+    with open(score_file, 'r', encoding="utf-8") as f:
+        lines = f.readlines()
+        for line in lines:
+            line = line.strip().split()
+            if len(line) > 1:
+                wav_id = line[0]
+                score[wav_id]=(line[pos]).replace("[","").replace("]","")
+    for wav_id in target:
+        target_score.append(float(score[wav_id]))
+    for wav_id in nontarget:
+        nontarget_score.append(float(score[wav_id]))
+    target_score=np.array(target_score)
+    nontarget_score=np.array(nontarget_score)
+    eer_cm, _=compute_eer(target_score, nontarget_score)
+    return eer_cm * 100
+
+
+
 def get_alltrn_data_kv():
     # 初始化一个空字典
     key_value_dict = {}

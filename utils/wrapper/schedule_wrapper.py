@@ -56,7 +56,7 @@ class scheduler_wrap():
         elif self.args.scheduler == "step":
             scheduler = optim.lr_scheduler.StepLR(
                 self.optimizer, 
-                step_size=25380 // self.args.batch_size, 
+                step_size= self.args.step_size, 
                 gamma=self.args.gamma
                 )
         else:

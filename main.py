@@ -4,9 +4,15 @@ import importlib
 import os,yaml,shutil
 from lightning.pytorch.callbacks import EarlyStopping, ModelCheckpoint,LearningRateMonitor
 from lightning.pytorch import loggers as pl_loggers
-
 # arguments initialization
 args = f_args_parsed()
+
+### temporal config
+# 
+# args.stage = 1
+# 
+# ###
+
 
 # config gpu
 os.environ['CUDA_VISIBLE_DEVICES'] = args.gpuid
@@ -76,10 +82,13 @@ if True:
         ymlconf = os.path.join(checkpointpath,"hparams.yaml")
         with open(ymlconf,"r") as f_yaml:
             parser1 = yaml.safe_load(f_yaml)
-        args.module_model = parser1["module_model"]
-        infer_m = importlib.import_module(args.module_model)
+        infer_m = importlib.import_module(parser1["module_model"])
+        test_dm_module = importlib.import_module(parser1["data_module"])
+        test_asvspoof_dm = test_dm_module.asvspoof_dataModule(args=args)
             
         infer_model = infer_m.Model(args)
+        
+        print(parser1)
         
         # print(args.savedir)
         ckpt_files = [file for file in os.listdir(checkpointpath+"/checkpoints/") if file.endswith(".ckpt")]
@@ -94,16 +103,16 @@ if True:
         # la19
         inferer.test(
             model=customed_model,
-            datamodule=asvspoof_dm
+            datamodule=test_asvspoof_dm
             )
         # la21
         inferer.predict(
             model=customed_model,
-            datamodule=asvspoof_dm
+            datamodule=test_asvspoof_dm
             )
         # df21
         inferer.model.args.testset = "ITW"
-        asvspoof_dm = dm_module.asvspoof_dataModule(args=args)
+        test_asvspoof_dm = test_dm_module.asvspoof_dataModule(args=args)
         inferer.predict(
             model=customed_model,
             datamodule=asvspoof_dm
@@ -111,7 +120,7 @@ if True:
         
         # ITW
         inferer.model.args.testset = "DF21"
-        asvspoof_dm = dm_module.asvspoof_dataModule(args=args)
+        test_asvspoof_dm = test_dm_module.asvspoof_dataModule(args=args)
         inferer.predict(
             model=customed_model,
             datamodule=asvspoof_dm
@@ -129,4 +138,5 @@ if True:
                 destination_path = os.path.join(inferfolder, filename)
                 shutil.move(original_path, destination_path)
         shutil.rmtree(folder_a)
+        
 # print(args)

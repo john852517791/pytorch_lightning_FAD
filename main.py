@@ -115,7 +115,7 @@ if True:
         test_asvspoof_dm = test_dm_module.asvspoof_dataModule(args=args)
         inferer.predict(
             model=customed_model,
-            datamodule=asvspoof_dm
+            datamodule=test_asvspoof_dm
             )
         
         # ITW
@@ -123,7 +123,7 @@ if True:
         test_asvspoof_dm = test_dm_module.asvspoof_dataModule(args=args)
         inferer.predict(
             model=customed_model,
-            datamodule=asvspoof_dm
+            datamodule=test_asvspoof_dm
             )
 
         

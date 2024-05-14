@@ -11,3 +11,6 @@ eval $line
 line="python utils/tools/cul_eer21df.py --scoreFile $scoreFilepath/infer_DF21.log > $scoreFilepath/eer_df21"
 echo $line
 eval $line
+line="python utils/tools/cul_itw.py --scoreFile $scoreFilepath/infer_ITW.log > $scoreFilepath/eer_itw"
+echo $line
+eval $line

@@ -37,13 +37,13 @@ class base_model(L.LightningModule):
     def forward(self,x):
         return self.model(x)
     
-    def on_train_epoch_start(self):
-        if self.args.start_ft != 0:
-            print(self.current_epoch)
-            if self.current_epoch >= self.args.start_ft:
-                self.model.unfreeze_parameters()
-            else:
-                self.model.freeze_parameters()
+    # def on_train_epoch_start(self):
+    #     if self.args.start_ft != 0:
+    #         print(self.current_epoch)
+    #         if self.current_epoch >= self.args.start_ft:
+    #             self.model.unfreeze_parameters()
+    #         else:
+    #             self.model.freeze_parameters()
             # self.model.unfreeze_parameters()
             
     

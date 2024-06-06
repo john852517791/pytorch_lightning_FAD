@@ -44,3 +44,11 @@ then change the **"--module_model"** config when you run the "run.sh"
 if you want to modify something in the train/eval/test/inference stage (like modification about the loss culculation), create a new file and reference file "models/tl_model.py"
 
 then change the **"--tl_model"** config when you run the "run.sh"
+
+# Generalized Fake Audio Detection via Deep Stable Learning 
+reweight leaner is in utils/ideas/
+check usage in the 
+
+
+
+

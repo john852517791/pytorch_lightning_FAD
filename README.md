@@ -47,7 +47,7 @@ then change the **"--tl_model"** config when you run the "run.sh"
 
 # Generalized Fake Audio Detection via Deep Stable Learning 
 reweight leaner is in utils/ideas/
-check usage in the 
+check usage in the tl_model_file (models/tl_model_postft_loss.py) and model file (models/wav2vec2/)
 
 
 

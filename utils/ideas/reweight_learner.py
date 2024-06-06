@@ -1,4 +1,4 @@
-
+# code from https://github.com/xxgege/StableNet
 import torch
 import torch.nn as nn
 from torch.autograd import Variable

@@ -45,7 +45,7 @@ if you want to modify something in the train/eval/test/inference stage (like mod
 
 then change the **"--tl_model"** config when you run the "run.sh"
 
-# Generalized Fake Audio Detection via Deep Stable Learning 
+# Generalized Fake Audio Detection via Deep Stable Learning (arxiv)[https://arxiv.org/pdf/2406.03237]
 reweight leaner is in utils/ideas/
 check usage in the tl_model_file (models/tl_model_postft_loss.py) and model file (models/wav2vec/l5_aasist_step_stable.py)
 and follow the usage of this framework mentioned above

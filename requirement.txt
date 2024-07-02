@@ -12,5 +12,3 @@ pandas
 lightning
 pyyaml
 transformers
-einops
-mamba_ssm

@@ -35,7 +35,7 @@ then change the **"--data_module"** config when you run the "run.sh"
 
 if you want to use another model architecture, add it in to the folder "models".
 
-if you won't change anything in the "models/tl_model.py", please **make sure the model you create return at least two elements** (prediction and hidden state)
+if you won't change anything in the "models/tl_model.py", please **make sure the model you create return at least two elements** (prediction and hidden state) and change the model class name to "Model"
 
 then change the **"--module_model"** config when you run the "run.sh"
 

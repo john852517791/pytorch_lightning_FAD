@@ -4,7 +4,7 @@ from transformers import Wav2Vec2Model,AutoConfig
 import torch.nn as nn
 import torch.nn.functional as F
 import torch
-from utils.ideas.MoEF import W2VAASIST
+from utils.ideas.MoEF.aasist import W2VAASIST
 from utils.ideas.MoLE import MoELocal, MoE24fusion
     
 

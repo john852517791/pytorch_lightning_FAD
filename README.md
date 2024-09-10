@@ -50,6 +50,6 @@ reweight leaner is in utils/ideas/
 check usage in the tl_model_file (models/tl_model_postft_loss.py) and model file (models/wav2vec/l5_aasist_step_stable.py)
 and follow the usage of this framework mentioned above
 
-
-
+#  Mixture of Experts Fusion for Fake Audio Detection Using Frozen wav2vec 2.0
+utils/ideas/MoEF/w2v2_moe_fz24_aasist.py
 

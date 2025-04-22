@@ -13,6 +13,17 @@ pip install -r requirement.txt
 
 # run sample
 
+## toyset
+By default, use the first GPU. If you need to change it, modify it yourself.
+
+```
+bash toyset_run.sh
+
+bash toyset_infer.sh
+```
+
+
+## whole datasets
 first thing first, change the dir in the "utils/loadData/asvspoof_data_DA.py"
 
 the run this line

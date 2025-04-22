@@ -1,0 +1,4 @@
+- 0_seg - - - spoof - eval
+- 1_seg - - - bonafide - eval
+- 2_seg - - - spoof - eval
+- 3_seg - - - bonafide - eval

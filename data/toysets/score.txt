@@ -1,0 +1,4 @@
+A01 spoof -11.60762
+- bonafide 4.84932
+A01 spoof -5.262832
+- bonafide 4.84932

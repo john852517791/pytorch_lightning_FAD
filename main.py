@@ -4,6 +4,7 @@ import importlib
 import os,yaml,shutil
 from lightning.pytorch.callbacks import EarlyStopping, ModelCheckpoint,LearningRateMonitor
 from lightning.pytorch import loggers as pl_loggers
+from datetime import datetime
 # arguments initialization
 args = f_args_parsed()
 
@@ -111,7 +112,7 @@ if True:
             datamodule=test_asvspoof_dm
             )
         # df21
-        inferer.model.args.testset = "ITW"
+        inferer.model.args.testset = "DF21"
         test_asvspoof_dm = test_dm_module.asvspoof_dataModule(args=args)
         inferer.predict(
             model=customed_model,
@@ -119,7 +120,7 @@ if True:
             )
         
         # ITW
-        inferer.model.args.testset = "DF21"
+        inferer.model.args.testset = "ITW"
         test_asvspoof_dm = test_dm_module.asvspoof_dataModule(args=args)
         inferer.predict(
             model=customed_model,
@@ -128,7 +129,9 @@ if True:
 
         
         # change the version_0 to infer, and delete useless files
-        inferfolder = os.path.join(checkpointpath,"infer")
+        current_time = datetime.now()
+        time_str = current_time.strftime("%Y_%m_%d_%H_%M_%S")
+        inferfolder = os.path.join(checkpointpath,f"infer_{time_str}")
         if not os.path.exists(inferfolder):
             os.makedirs(inferfolder)
         folder_a = os.path.join(checkpointpath,"version_0")

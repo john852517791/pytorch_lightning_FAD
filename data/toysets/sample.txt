@@ -1,0 +1,4 @@
+LA_0077 0_seg - A01 spoof
+LA_0069 1_seg - - bonafide
+LA_0077 2_seg - A01 spoof
+LA_0069 3_seg - - bonafide

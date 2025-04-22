@@ -607,17 +607,18 @@ class Model(nn.Module):
 
 
 if __name__ == "__main__":
-    import json
-    conf = "/data8/wangzhiyong/project/fakeAudioDetection/investigating_partial_pre-trained_model_for_fake_audio_detection/reference/fad/aasist/config/AASIST.conf"
-    # conf = "/data8/wangzhiyong/project/fakeAudioDetection/investigating_partial_pre-trained_model_for_fake_audio_detection/reference/fad/aasist/config/AASIST-L.conf"
-    with open(conf, "r") as f_json:
-        config = json.loads(f_json.read())
-    model_config = config["model_config"]
-    md = Model(model_config)
+    # import json
+    # conf = "/data8/wangzhiyong/project/fakeAudioDetection/investigating_partial_pre-trained_model_for_fake_audio_detection/reference/fad/aasist/config/AASIST.conf"
+    # # conf = "/data8/wangzhiyong/project/fakeAudioDetection/investigating_partial_pre-trained_model_for_fake_audio_detection/reference/fad/aasist/config/AASIST-L.conf"
+    # with open(conf, "r") as f_json:
+    #     config = json.loads(f_json.read())
+    # model_config = config["model_config"]
+    md = Model(None)
     # print(summary(md, torch.randn((8,64600)), show_input=False))
     op,res = md( torch.randn((8,64600)))
     print(op.shape)
     # print(len(op))
     print(res.shape)
     print(sum(i.numel() for i in md.parameters() if i.requires_grad)/1000000)  # 0.97M
+    print(md)
     

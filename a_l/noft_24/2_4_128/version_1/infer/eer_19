@@ -1,0 +1,25 @@
+t-DCF evaluation from [Nbona=7355, Nspoof=63882] trials
+
+t-DCF MODEL
+   Ptar         =  0.94050 (Prior probability of target user)
+   Pnon         =  0.00950 (Prior probability of nontarget user)
+   Pspoof       =  0.05000 (Prior probability of spoofing attack)
+   Cfa_asv      = 10.00000 (Cost of ASV falsely accepting a nontarget)
+   Cmiss_asv    =  1.00000 (Cost of ASV falsely rejecting target speaker)
+   Cfa_cm       = 10.00000 (Cost of CM falsely passing a spoof to ASV system)
+   Cmiss_cm     =  1.00000 (Cost of CM falsely blocking target utterance which never reaches ASV)
+
+   Implied normalized t-DCF function (depends on t-DCF parameters and ASV errors), s=CM threshold)
+   tDCF_norm(s) =  2.40595 x Pmiss_cm(s) + Pfa_cm(s)
+
+ASV SYSTEM
+   EER            =  2.45778 % (Equal error rate (target vs. nontarget discrimination)
+   Pfa            =  2.46047 % (False acceptance rate of nontargets)
+   Pmiss          =  2.45810 % (False rejection rate of targets)
+   1-Pmiss,spoof  = 76.06525 % (Spoof false acceptance rate)
+
+CM SYSTEM
+   EER            =  0.74802 % (Equal error rate for countermeasure)
+
+TANDEM
+   min-tDCF       =  0.02126

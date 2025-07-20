@@ -1,0 +1,11 @@
+a_train_log/*
+b_gpu_log/*
+__pycache__
+*/__pycache__
+*/*/__pycache__
+*/*/*/__pycache__
+refer
+a_log/
+a_log*/
+test
+bibconverter.ipynb
